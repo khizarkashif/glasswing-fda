@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Prism</title>
+<title>Echo</title>
 <meta name="description" content="Turn scattered device and companion-app feedback into traceable Quality and Product workflows." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiNGQkZBRjYiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRUE1RjQxIiBzdHJva2Utb3BhY2l0eT0iLjU1IiBzdHJva2Utd2lkdGg9IjMiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIxOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEI3Q0Y2IiBzdHJva2Utd2lkdGg9IjMuNSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjkiIGZpbGw9IiMyQTNCQ0YiLz48L3N2Zz4=" />
 <link rel="icon" href="/favicon.ico" sizes="48x48" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="theme-color" content="#FFFFFF" />
 <link rel="stylesheet" href="assets/styles.css?v=20260927p" />
+<link rel="stylesheet" href="assets/echo-polish.css?v=echo1" />
 </head>
 <body>
 
@@ -20,9 +22,9 @@
   <!-- ================= SIDEBAR ================= -->
   <aside class="sidebar" id="sidebar" data-od-id="sidebar">
     <div class="brand">
-      <img class="brand-logo" src="/prism-logo-256.png" alt="Prism" />
+      <img class="brand-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiNGQkZBRjYiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRUE1RjQxIiBzdHJva2Utb3BhY2l0eT0iLjU1IiBzdHJva2Utd2lkdGg9IjMiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIxOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEI3Q0Y2IiBzdHJva2Utd2lkdGg9IjMuNSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjkiIGZpbGw9IiMyQTNCQ0YiLz48L3N2Zz4=" alt="Echo" />
       <div>
-        <div class="brand-name">Prism</div>
+        <div class="brand-name">Echo</div>
         <div class="brand-sub">Quality &amp; Product Console</div>
       </div>
     </div>
@@ -35,7 +37,7 @@
       </button>
       <button class="nav-item" data-view="ideas" data-od-id="nav-ideas">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.2h6c0-.8.4-1.6 1-2.2A6 6 0 0 0 12 3Z"/></svg>
-        Ideas
+        Threads
       </button>
       <button class="nav-item" data-view="quality" data-od-id="nav-quality">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.2 2.9 7.5 7 9 4.1-1.5 7-4.8 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -51,7 +53,7 @@
       </button>
       <button class="nav-item" data-view="pods" data-od-id="nav-pods">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5.9M17 14.5a6 6 0 0 1 4 5.5"/></svg>
-        Pods
+        Lanes
       </button>
       <button class="nav-item" data-view="integrations" data-od-id="nav-integrations">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v4M14 4v4M7 8h10v4a5 5 0 0 1-10 0V8ZM12 17v3"/></svg>
@@ -69,6 +71,7 @@
     </nav>
 
     <div class="sidebar-foot">
+      <a class="site-btn" id="siteBtn" href="https://echo-feedback-site.vercel.app" target="_blank" rel="noopener">Main website <span class="arr" aria-hidden="true">→</span></a>
       <div class="user">
         <span class="avatar" aria-hidden="true">KK</span>
         <div>
@@ -87,9 +90,10 @@
       </button>
       <label class="search" for="globalSearch">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
-        <input id="globalSearch" type="search" placeholder="Search ideas, report IDs, Jira keys, customers…" autocomplete="off" />
+        <input id="globalSearch" type="search" placeholder="Search threads, report IDs, Jira keys, customers…" autocomplete="off" />
       </label>
-      <span class="avatar" aria-hidden="true" style="margin-left:auto">KK</span>
+      <a class="site-link" id="siteLink" href="https://echo-feedback-site.vercel.app" target="_blank" rel="noopener" style="margin-left:auto">Main website ↗</a>
+      <span class="avatar" aria-hidden="true">KK</span>
     </header>
 
     <div class="views" id="views">
@@ -124,8 +128,8 @@
           <div class="glass kpi rise" style="--i:2" data-od-id="kpi-ideas">
             <div class="k-top"><span class="k-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.2h6c0-.8.4-1.6 1-2.2A6 6 0 0 0 12 3Z"/></svg></span></div>
             <div class="k-num num"><span data-count="11">0</span></div>
-            <div class="k-label">Ideas mapped to Jira</div>
-            <div class="k-sub">across 6 pods</div>
+            <div class="k-label">Threads mapped to Jira</div>
+            <div class="k-sub">across 6 lanes</div>
           </div>
           <div class="glass kpi rise" style="--i:3" data-od-id="kpi-excluded">
             <div class="k-top"><span class="k-ic s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span></div>
@@ -213,8 +217,8 @@
       <section class="view" id="view-ideas" data-od-id="view-ideas">
         <div class="page-head">
           <div>
-            <h1>Ideas</h1>
-            <p class="sub">Each idea is a cluster of feedback from one or more sources, linked to a Jira ticket as evidence. Ownership lives on the Pods page.</p>
+            <h1>Threads</h1>
+            <p class="sub">Each thread is a cluster of feedback from one or more sources, linked to a Jira ticket as evidence. Ownership lives on the Lanes page.</p>
           </div>
           <div class="row">
             <button class="btn btn-secondary" data-goto="quality">
@@ -256,7 +260,7 @@
         </div>
 
         <div class="idea-grid" id="ideaGrid"></div>
-        <div class="empty hide" id="ideaEmpty">No ideas match the current filters.</div>
+        <div class="empty hide" id="ideaEmpty">No threads match the current filters.</div>
       </section>
 
       <!-- ========== IDEA DETAIL ========== -->
@@ -264,11 +268,11 @@
         <div class="glass detail-hero">
           <button class="back" data-goto="ideas">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg>
-            Back to ideas
+            Back to threads
           </button>
           <div class="row-between" style="align-items:flex-start">
             <div style="max-width:70ch">
-              <h1 id="detailTitle">Idea title</h1>
+              <h1 id="detailTitle">Thread title</h1>
               <div class="detail-meta" id="detailMeta"></div>
             </div>
             <div class="row" id="detailActions">
@@ -489,11 +493,11 @@
         <div class="page-head">
           <div>
             <h1>Roadmap</h1>
-            <p class="sub">What customers are telling us now, mapped to what we are building. Each cluster shows its demand against the lane it sits in.</p>
+            <p class="sub">What customers are telling us now, mapped to what we are building. Each cluster shows its demand against the roadmap column it sits in.</p>
           </div>
           <div class="row">
             <span class="label label-success"><span class="dot"></span>6 shipped this cycle</span>
-            <button class="btn btn-secondary" data-goto="ideas">Browse ideas</button>
+            <button class="btn btn-secondary" data-goto="ideas">Browse threads</button>
           </div>
         </div>
 
@@ -510,7 +514,7 @@
         </div>
 
         <div class="glass panel rise" style="--i:1;margin-top:var(--space-md)" data-od-id="roadmap-lanes">
-          <div class="panel-head"><div><h3>Committed work</h3><p class="sub">Now / Next / Later  -  click a card to open its idea, Jira evidence and evidence quotes.</p></div></div>
+          <div class="panel-head"><div><h3>Committed work</h3><p class="sub">Now / Next / Later  -  click a card to open its thread, Jira evidence and evidence quotes.</p></div></div>
           <div class="grid-3" id="roadmapLanes"></div>
         </div>
 
@@ -532,18 +536,18 @@
       <section class="view" id="view-pods" data-od-id="view-pods">
         <div class="page-head">
           <div>
-            <h1>Pods</h1>
-            <p class="sub">Each pod owns a slice of the feedback. Open a pod to see exactly which ideas map to it, who leads it, and how much complaint volume it carries.</p>
+            <h1>Lanes</h1>
+            <p class="sub">Each lane owns a slice of the feedback. Open a lane to see exactly which threads map to it, who leads it, and how much complaint volume it carries.</p>
           </div>
           <div class="row">
-            <span class="label label-neutral"><span class="dot"></span>6 pods · 2 unverified leads</span>
-            <button class="btn btn-secondary" data-goto="ideas">Browse ideas</button>
+            <span class="label label-neutral"><span class="dot"></span>6 lanes · 2 unverified leads</span>
+            <button class="btn btn-secondary" data-goto="ideas">Browse threads</button>
           </div>
         </div>
 
         <div class="glass panel rise" style="--i:0;margin-bottom:var(--space-md)" data-od-id="pod-coverage">
           <div class="panel-head">
-            <div><h3>Ownership coverage</h3><p class="sub">Pods that already have a named, verified lead vs. still proposed.</p></div>
+            <div><h3>Ownership coverage</h3><p class="sub">Lanes that already have a named, verified lead vs. still proposed.</p></div>
             <span class="label label-accent" id="podCoverageTag"> - </span>
           </div>
           <div class="row-between"><span class="meta" id="podCoverageLabel"> - </span><span class="meta num" id="podCoveragePct"> - </span></div>
@@ -558,11 +562,11 @@
         <div class="glass detail-hero">
           <button class="back" data-goto="pods">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg>
-            Back to pods
+            Back to lanes
           </button>
           <div class="row-between" style="align-items:flex-start">
             <div style="max-width:70ch">
-              <h1 id="podDetailTitle">Pod</h1>
+              <h1 id="podDetailTitle">Lane</h1>
               <p class="sub" id="podDetailOkr"> - </p>
             </div>
             <span class="label" id="podDetailHealth"> - </span>
@@ -572,7 +576,7 @@
         </div>
 
         <div class="panel-head" style="margin:var(--space-md) 0 4px">
-          <div><h3>Ideas mapped to this pod</h3><p class="sub">Every cluster here is owned by this pod and traceable to its Jira ticket and source evidence.</p></div>
+          <div><h3>Threads mapped to this lane</h3><p class="sub">Every cluster here is owned by this lane and traceable to its Jira ticket and source evidence.</p></div>
           <span class="label label-neutral" id="podDetailIdeaCount">0</span>
         </div>
         <div class="idea-grid" id="podDetailIdeas"></div>
@@ -621,7 +625,7 @@
         <div class="page-head">
           <div>
             <h1>Assistant</h1>
-            <p class="sub">Ask across feedback, classifier output, ideas and roadmap evidence. Every answer links back to the exact records it used.</p>
+            <p class="sub">Ask across feedback, classifier output, threads and roadmap evidence. Every answer links back to the exact records it used.</p>
           </div>
         </div>
 
@@ -630,7 +634,7 @@
             <div class="ah-left">
               <span class="brand-mark" style="width:32px;height:32px;border-radius:9px"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="10" width="14" height="10" rx="3"/><path d="M12 6v4M9 15h.01M15 15h.01"/></svg></span>
               <div style="min-width:0">
-                <div class="ah-title">Prism Assistant</div>
+                <div class="ah-title">Echo Assistant</div>
                 <div class="ah-scope" id="scopeLabel">
                   <span class="scope-pulse" aria-hidden="true"></span>
                   <span><b>Product feedback</b> only <span class="sc-sub">· quality &amp; compliance excluded</span></span>
@@ -654,12 +658,12 @@
           </div>
           <div class="chat-thread" id="chatThread"></div>
           <div class="prompt-chips" id="promptChips" style="padding-bottom:12px">
-            <button class="prompt-chip">Which ideas have no confirmed owner?</button>
+            <button class="prompt-chip">Which threads have no confirmed owner?</button>
             <button class="prompt-chip">Summarise the false-alarm cluster</button>
             <button class="prompt-chip">MDR candidates with patient harm</button>
           </div>
           <form class="chat-input" id="chatForm">
-            <input id="chatInput" type="text" placeholder="Ask about feedback, ideas, quality or roadmap…" autocomplete="off" />
+            <input id="chatInput" type="text" placeholder="Ask about feedback, threads, quality or roadmap…" autocomplete="off" />
             <button class="btn btn-primary" type="submit" aria-label="Send">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
             </button>
@@ -744,7 +748,7 @@
       <div class="stack" id="sourceFeed" style="gap:8px"></div>
     </div>
     <div>
-      <h4>Ideas built on this source</h4>
+      <h4>Threads built on this source</h4>
       <div class="stack" id="sourceIdeas" style="gap:8px"></div>
     </div>
     <p class="meta">Records are a synthetic demo slice. Each keeps its original quote, native ID and source link in the schema v1.1 store.</p>
