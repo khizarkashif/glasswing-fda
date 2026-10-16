@@ -905,7 +905,7 @@
       "demand": 13,
       "effort": 22,
       "owner": {
-        "name": "Design System pod",
+        "name": "Design System lane",
         "verified": false,
         "role": "Platform design"
       },
@@ -1466,15 +1466,15 @@
     {
       "id": "jira",
       "name": "Jira",
-      "desc": "Product feedback → ideas → tickets, with roadmap evidence.",
+      "desc": "Product feedback → threads → tickets, with roadmap evidence.",
       "status": "connected",
       "tone": "success",
-      "detail": "6 pods mapped"
+      "detail": "6 lanes mapped"
     },
     {
       "id": "salesforce",
       "name": "Salesforce CRM",
-      "desc": "Conditional account + ARR context on ideas.",
+      "desc": "Conditional account + ARR context on threads.",
       "status": "connected",
       "tone": "success",
       "detail": "Read-only"
