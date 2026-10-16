@@ -1,4 +1,4 @@
-/* Prism  -  Quality & Product Console
+/* Echo  -  Quality & Product Console
  * Application logic. Requires assets/data.js to be loaded first (declares
  * SOURCES, SOURCE_FEED, SPLIT, TREND, IDEAS, PODS, QUALITY, PIPELINE,
  * CONNECTORS, TECH, ROADMAP, SHIPPED, QMS, DESTS on window).
@@ -137,7 +137,7 @@ function renderAnalytics(days) {
   if (prov) {
     const h = (window.TF_RUNTIME && window.TF_RUNTIME.state && window.TF_RUNTIME.state.health) || null;
     const n = h && h.counts ? h.counts.public_visible : ' - ';
-    prov.innerHTML = '<span class="label label-neutral" style="font-size:10px">synthetic scenario</span> Aeris Health demo dataset · ' + IDEAS.length + ' ideas, ' + PODS.length + ' pods. Live Supabase: ' + n + ' public rows.';
+    prov.innerHTML = '<span class="label label-neutral" style="font-size:10px">synthetic scenario</span> Aeris Health demo dataset · ' + IDEAS.length + ' threads, ' + PODS.length + ' lanes. Live Supabase: ' + n + ' public rows.';
   }
 }
 
@@ -207,7 +207,7 @@ function renderIdeas() {
 const STAGES = ['Intake', 'Triage', 'In build', 'In review', 'Shipped'];
 function showIdea(id) {
   const i = IDEAS.find(x => x.id === id); if (!i) return;
-  const de = $('#detailEyebrow'); if (de) de.textContent = 'IDEA';
+  const de = $('#detailEyebrow'); if (de) de.textContent = 'THREAD';
   $('#detailTitle').textContent = i.title;
   $('#detailMeta').innerHTML = '<span class="label label-neutral"><span class="dot"></span>' + i.reports + ' reports in cluster</span>';
   $('#detailEvidenceCount').textContent = i.reports + ' reports';
@@ -463,23 +463,23 @@ function renderPods() {
   $('#podGrid').innerHTML = PODS.map((p, k) => {
     const ideas = IDEAS.filter(i => i.pod === p.name);
     const reports = ideas.reduce((s, i) => s + i.reports, 0);
-    return '<div class="glass pod-card rise" style="--i:' + k + '" data-od-id="pod-' + p.id + '" data-pod="' + p.name + '" role="button" tabindex="0" aria-label="Open the ' + p.name + ' pod">' +
+    return '<div class="glass pod-card rise" style="--i:' + k + '" data-od-id="pod-' + p.id + '" data-pod="' + p.name + '" role="button" tabindex="0" aria-label="Open the ' + p.name + ' lane">' +
       '<div class="pod-head"><span class="pod-monogram" aria-hidden="true">' + p.mono + '</span>' +
       '<div class="grow"><div class="pod-name">' + p.name + '</div><div class="pod-role">' + p.okr + '</div></div>' +
       '<span class="label ' + tone[p.health] + '"><span class="dot"></span>' + text[p.health] + '</span></div>' +
       '<div class="pod-people">' +
-        personRow(p.lead, p.leadVerified, 'Pod lead', true) +
+        personRow(p.lead, p.leadVerified, 'Lane lead', true) +
         personRow(p.pm, true, 'Product mgr', false) +
       '</div>' +
-      '<div class="pod-stats">' + podStat(ideas.length, 'ideas') + podStat(reports, 'reports') + podStat(fmt(p.complaints), 'complaint cand.') + '</div>' +
-      '<div class="pod-ideas"><div class="pod-ideas-head"><span class="meta">' + ideas.length + ' idea' + (ideas.length === 1 ? '' : 's') + ' in this pod</span><span class="meta">Open pod →</span></div>' +
-      (ideas.length ? (function () { var top = ideas.slice().sort(function (a, b) { return b.reports - a.reports; })[0]; return '<span class="pod-idea" data-idea="' + top.id + '"><span class="grow"><span class="pi-title">' + top.title + '</span><br><span class="pi-meta">' + top.reports + ' reports · top theme' + (ideas.length > 1 ? ' · +' + (ideas.length - 1) + ' more' : '') + '</span></span><span class="label ' + (top.jiraClass || 'label-neutral') + '">' + top.jiraStatus + '</span></span>'; })() : '<p class="pod-empty">No idea clusters assigned yet.</p>') +
+      '<div class="pod-stats">' + podStat(ideas.length, 'threads') + podStat(reports, 'reports') + podStat(fmt(p.complaints), 'complaint cand.') + '</div>' +
+      '<div class="pod-ideas"><div class="pod-ideas-head"><span class="meta">' + ideas.length + ' thread' + (ideas.length === 1 ? '' : 's') + ' in this lane</span><span class="meta">Open lane →</span></div>' +
+      (ideas.length ? (function () { var top = ideas.slice().sort(function (a, b) { return b.reports - a.reports; })[0]; return '<span class="pod-idea" data-idea="' + top.id + '"><span class="grow"><span class="pi-title">' + top.title + '</span><br><span class="pi-meta">' + top.reports + ' reports · top theme' + (ideas.length > 1 ? ' · +' + (ideas.length - 1) + ' more' : '') + '</span></span><span class="label ' + (top.jiraClass || 'label-neutral') + '">' + top.jiraStatus + '</span></span>'; })() : '<p class="pod-empty">No thread clusters assigned yet.</p>') +
       '</div></div>';
   }).join('');
   const withLead = PODS.filter(p => p.leadVerified).length;
   const pct = Math.round((withLead / PODS.length) * 100);
-  $('#podCoverageTag').textContent = withLead + ' of ' + PODS.length + ' pods led';
-  $('#podCoverageLabel').textContent = 'Pods with a named, verified lead';
+  $('#podCoverageTag').textContent = withLead + ' of ' + PODS.length + ' lanes led';
+  $('#podCoverageLabel').textContent = 'Lanes with a named, verified lead';
   $('#podCoveragePct').textContent = pct + '%';
   $('#podCoverageBar').style.width = pct + '%';
 }
@@ -489,14 +489,14 @@ function openPod(name) {
   const reports = ideas.reduce((s, i) => s + i.reports, 0);
   const tone = { ok: 'label-success', 'at-risk': 'label-warning', critical: 'label-danger' };
   const text = { ok: 'On track', 'at-risk': 'Watch', critical: 'Needs decision' };
-  const pde = $('#podDetailEyebrow'); if (pde) pde.textContent = 'POD · ' + p.name.toUpperCase();
+  const pde = $('#podDetailEyebrow'); if (pde) pde.textContent = 'LANE · ' + p.name.toUpperCase();
   $('#podDetailTitle').textContent = p.name;
   $('#podDetailOkr').textContent = p.okr;
   const h = $('#podDetailHealth'); h.className = 'label ' + tone[p.health]; h.innerHTML = '<span class="dot"></span>' + text[p.health];
-  $('#podDetailPeople').innerHTML = personRow(p.lead, p.leadVerified, 'Pod lead', true) + personRow(p.pm, true, 'Product mgr', false);
-  $('#podDetailStats').innerHTML = podStat(ideas.length, 'ideas') + podStat(reports, 'reports') + podStat(fmt(p.complaints), 'complaint cand.');
-  $('#podDetailIdeaCount').textContent = ideas.length + (ideas.length === 1 ? ' idea' : ' ideas');
-  $('#podDetailIdeas').innerHTML = ideas.length ? ideas.map((i, k) => ideaCard(i, k)).join('') : '<div class="empty">No idea clusters are assigned to this pod yet.</div>';
+  $('#podDetailPeople').innerHTML = personRow(p.lead, p.leadVerified, 'Lane lead', true) + personRow(p.pm, true, 'Product mgr', false);
+  $('#podDetailStats').innerHTML = podStat(ideas.length, 'threads') + podStat(reports, 'reports') + podStat(fmt(p.complaints), 'complaint cand.');
+  $('#podDetailIdeaCount').textContent = ideas.length + (ideas.length === 1 ? ' thread' : ' threads');
+  $('#podDetailIdeas').innerHTML = ideas.length ? ideas.map((i, k) => ideaCard(i, k)).join('') : '<div class="empty">No thread clusters are assigned to this lane yet.</div>';
   go('pod');
 }
 
@@ -532,7 +532,7 @@ function intCard(o, isQms) {
 }
 function renderIntegrations() {
   $('#qmsGrid').innerHTML = QMS.map(q => intCard(q, true)).join('');
-  $('#sourceGrid').innerHTML = SOURCES.map(s => { const c = CONNECTORS.find(x => x.id === s.id) || {}; return '<div class="glass int-card"><div class="ic-top src-row" data-source="' + s.id + '" role="button" tabindex="0" aria-label="View ' + s.name + ' feedback and ideas"><span class="logo-tile" style="color:' + brand(s.id) + '">' + (LOGOS[s.id] || '<span class="logo-mono">AS</span>') + '</span><div><div class="ic-name">' + s.name + '</div><span class="label ' + (c.status === 'warn' ? 'label-warning' : 'label-success') + '" style="font-size:10px"><span class="dot"></span>' + (c.last || 'live') + '</span></div></div><p class="ic-desc">' + (c.kind || 'Feedback source') + ' · ' + s.value + ' records this cycle · ' + (c.mode === 'live' ? 'live' : 'synthetic') + '</p><div class="ic-foot"><button type="button" class="src-link" data-source="' + s.id + '">View records</button><span class="switch ' + (c.status === 'warn' ? '' : 'on') + '" data-toggle-int role="switch" tabindex="0"></span></div></div>'; }).join('');
+  $('#sourceGrid').innerHTML = SOURCES.map(s => { const c = CONNECTORS.find(x => x.id === s.id) || {}; return '<div class="glass int-card"><div class="ic-top src-row" data-source="' + s.id + '" role="button" tabindex="0" aria-label="View ' + s.name + ' feedback and threads"><span class="logo-tile" style="color:' + brand(s.id) + '">' + (LOGOS[s.id] || '<span class="logo-mono">AS</span>') + '</span><div><div class="ic-name">' + s.name + '</div><span class="label ' + (c.status === 'warn' ? 'label-warning' : 'label-success') + '" style="font-size:10px"><span class="dot"></span>' + (c.last || 'live') + '</span></div></div><p class="ic-desc">' + (c.kind || 'Feedback source') + ' · ' + s.value + ' records this cycle · ' + (c.mode === 'live' ? 'live' : 'synthetic') + '</p><div class="ic-foot"><button type="button" class="src-link" data-source="' + s.id + '">View records</button><span class="switch ' + (c.status === 'warn' ? '' : 'on') + '" data-toggle-int role="switch" tabindex="0"></span></div></div>'; }).join('');
   $('#destGrid').innerHTML = DESTS.map(d => intCard(d, false)).join('');
   bindSwitches();
 }
@@ -566,9 +566,9 @@ function openSource(id) {
     srcStat(fmt(s.value), 'records this cycle') +
     srcStat(fmt(s.complaints), 'complaint candidates') +
     srcStat(fmt(s.product), 'product feedback') +
-    srcStat(String(ideas.length), ideas.length === 1 ? 'linked idea' : 'linked ideas');
+    srcStat(String(ideas.length), ideas.length === 1 ? 'linked thread' : 'linked threads');
   $('#sourceFeed').innerHTML = feed.length ? feed.map(f => '<div class="src-feed-row"><span class="label ' + f.cls + '" style="font-size:10px">' + f.label + '</span><span class="sr-t">' + f.t + '</span><span class="sr-w">' + f.when + '</span></div>').join('') : '<p class="sub" style="font-size:12px">No records in this synthetic slice.</p>';
-  $('#sourceIdeas').innerHTML = ideas.length ? ideas.map(i => '<button type="button" class="src-idea-row" data-source-idea="' + i.id + '"><span class="grow"><span class="si-title">' + i.title + '</span><br><span class="si-meta">' + i.jira + ' · ' + i.reports + ' reports · ' + i.pod + '</span></span><span class="label ' + i.jiraClass + '">' + i.jiraStatus + '</span></button>').join('') : '<p class="sub" style="font-size:12px">No idea clusters yet  -  reports from this source are still below the clustering threshold.</p>';
+  $('#sourceIdeas').innerHTML = ideas.length ? ideas.map(i => '<button type="button" class="src-idea-row" data-source-idea="' + i.id + '"><span class="grow"><span class="si-title">' + i.title + '</span><br><span class="si-meta">' + i.jira + ' · ' + i.reports + ' reports · ' + i.pod + '</span></span><span class="label ' + i.jiraClass + '">' + i.jiraStatus + '</span></button>').join('') : '<p class="sub" style="font-size:12px">No thread clusters yet  -  reports from this source are still below the clustering threshold.</p>';
   $('#sourceDrawer').classList.add('on'); $('#sourceScrim').classList.add('on');
 }
 function closeSource() { $('#sourceDrawer').classList.remove('on'); $('#sourceScrim').classList.remove('on'); }

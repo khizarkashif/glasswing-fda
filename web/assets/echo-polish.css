@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
+/* Echo polish: warm paper, serif display, cobalt + coral + lilac, echo-ring motif. Visual only. */
+:root{
+  --paper:#FBFAF6; --ink:#1F1E1C; --cobalt:#2A3BCF; --coral:#EA5F41; --lilac:#EEE8FB; --lilac-2:#D9CFF7;
+  --bg:var(--paper); --accent:var(--cobalt); --accent-hover:#1F2DA8;
+  --font-heading:"Source Serif 4",Georgia,serif;
+  --font-display:"Source Serif 4",Georgia,serif;
+  --font-body:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --sidebar-bg:#F4F0E8; --sidebar-edge:#E6E0D3; --sidebar-fg:#1F1E1C;
+  --sidebar-line:rgba(31,30,28,.12); --sidebar-hover:rgba(42,59,207,.07); --sidebar-active:var(--lilac);
+}
+body{font-family:"DM Sans","Helvetica Neue",Arial,sans-serif;background:var(--paper);color:var(--ink)}
+h1,h2,h3,h4{font-family:"Source Serif 4",Georgia,serif;font-weight:500;letter-spacing:-.015em}
+h1{font-size:clamp(1.9rem,3vw,2.6rem);font-weight:450}
+h1 em,.page-head h1::after{font-family:"EB Garamond",serif;font-style:italic}
+.page-head h1::after{content:"";display:block;width:64px;height:6px;margin-top:10px;border-radius:6px;
+  background:radial-gradient(circle at 3px 3px,var(--coral) 3px,transparent 3.5px) 0 0/16px 6px repeat-x}
+/* sidebar: warm paper instead of navy */
+.sidebar{background:var(--sidebar-bg);border-right:1px solid var(--sidebar-edge);color:var(--ink);overflow:hidden}
+.sidebar::after{content:"";position:absolute;left:-90px;bottom:-90px;width:300px;height:300px;border-radius:50%;pointer-events:none;
+  box-shadow:0 0 0 22px rgba(42,59,207,.05),0 0 0 54px rgba(234,95,65,.05),0 0 0 92px rgba(138,124,246,.06);animation:echoPulse 7s ease-in-out infinite}
+@keyframes echoPulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:.55}}
+.brand-name{color:var(--ink);font-family:"Source Serif 4",serif;font-size:21px;font-weight:600}
+.brand-sub{color:#6B6560}
+.nav-label{color:#8A8378}
+.nav-item{color:#3A3733;border-radius:999px;transition:background .2s,transform .2s,color .2s}
+.nav-item:hover{background:var(--sidebar-hover);color:var(--cobalt);transform:translateX(2px)}
+.nav-item.active{background:var(--lilac);color:var(--cobalt);font-weight:600;box-shadow:inset 0 0 0 1px var(--lilac-2)}
+.nav-item.active::before{background:var(--coral);left:-4px}
+.user-name{color:var(--ink)} .user-role{color:#6B6560}
+.brand-logo{border-radius:50%;animation:logoSpin 40s linear infinite}
+@keyframes logoSpin{to{transform:rotate(360deg)}}
+.sidebar .data-btn{color:var(--ink)}
+/* main-website button */
+.site-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 4px 10px;padding:11px 16px;border-radius:999px;
+  background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:13px;transition:transform .2s,background .2s;position:relative;z-index:1}
+.site-btn:hover{background:var(--cobalt);transform:translateY(-1px)}
+.site-btn .arr{transition:transform .2s}.site-btn:hover .arr{transform:translateX(3px)}
+.topbar .site-link{margin-right:12px;font-size:13px;font-weight:600;color:var(--cobalt);text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid var(--lilac-2);background:var(--lilac);white-space:nowrap}
+.topbar .site-link:hover{background:#E3DAF9}
+/* surfaces */
+.glass,.panel{background:#fff;border:1px solid #ECE7DF;border-radius:20px;box-shadow:0 1px 0 rgba(31,30,28,.03),0 14px 30px -22px rgba(42,59,207,.35);transition:transform .25s,box-shadow .25s}
+.glass:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(31,30,28,.03),0 22px 36px -20px rgba(42,59,207,.4)}
+.btn{border-radius:999px;font-weight:600}
+.btn-primary,.btn.btn-primary{background:var(--cobalt)}
+.btn-primary:hover{background:var(--ink)}
+.k-value,.kpi-value,.stat-num{font-family:"Source Serif 4",serif;font-weight:450}
+.topbar{background:rgba(251,250,246,.86);backdrop-filter:none;border-bottom:1px solid #ECE7DF}
+.label,.tag{border-radius:999px}
+input[type=search]{border-radius:999px}
+@media (prefers-reduced-motion:reduce){.sidebar::after,.brand-logo{animation:none}}
+@media (max-width:900px){.topbar .site-link{display:none}}
+@media (max-width:700px){
+  .commit-row{flex-wrap:wrap}
+  .commit-row .grow{flex:1 1 100%;min-width:0}
+  .commit-row .cr-demand{flex:1 1 auto;min-width:0}
+  .commit-row .cr-title{word-break:normal;overflow-wrap:anywhere}
+}
