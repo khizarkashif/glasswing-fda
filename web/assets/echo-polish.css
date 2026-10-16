@@ -85,4 +85,4 @@ input[type=search]{border-radius:999px}
 .sidebar .site-btn:hover{background:#fff;color:#1F2DA8}
 .sidebar :focus-visible{outline:2px solid var(--cream);outline-offset:2px}
 /* complementary palette: blue + amber (matches marketing site) */
-:root{--accent:#1F3FBF;--accent-hover:#17308F;--accent-active:#112A78;--accent-subtle:#EAF0FC;--accent-2:#7F9CE8;--coral:#E0891A}
+:root{--accent:#1F3FBF;--accent-hover:#17308F;--accent-active:#112A78;--accent-subtle:#EAF0FC;--accent-2:#7F9CE8;--coral:#E0891A;--info:#1F3FBF;--info-bg:#EAF0FC}

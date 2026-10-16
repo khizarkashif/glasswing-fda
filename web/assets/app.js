@@ -38,7 +38,7 @@ function countUp(node) {
 
 /* ================= charts ================= */
 function renderSources() {
-  var PALETTE = ['#2B4BD8', '#8B7CF6', '#FF6B5B', '#7C8CE8', '#B9B0FA', '#FF9A8F'];
+  var PALETTE = ['#1F3FBF', '#E0891A', '#7F9CE8', '#B4600A', '#9DB4EE', '#F2C078'];
   const W = 640, H = 260, pad = { l: 8, r: 8, t: 20, b: 40 };
   const max = Math.max(...SOURCES.map(s => s.value));
   const bw = (W - pad.l - pad.r) / SOURCES.length;
