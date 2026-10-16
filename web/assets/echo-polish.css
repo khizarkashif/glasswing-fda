@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
 /* Echo polish: warm paper, serif display, cobalt + coral + lilac, echo-ring motif. Visual only. */
 :root{
-  --paper:#FBFAF6; --ink:#1F1E1C; --cobalt:#2A3BCF; --coral:#EA5F41; --lilac:#EEE8FB; --lilac-2:#D9CFF7;
-  --bg:var(--paper); --accent:var(--cobalt); --accent-hover:#1F2DA8;
+  --paper:#FBFAF6; --ink:#1F1E1C; --cobalt:#1F3FBF; --coral:#E0891A; --lilac:#EAF0FC; --lilac-2:#C9D8F6;
+  --bg:var(--paper); --accent:var(--cobalt); --accent-hover:#17308F;
   --font-heading:"Source Serif 4",Georgia,serif;
   --font-display:"Source Serif 4",Georgia,serif;
   --font-body:"DM Sans","Helvetica Neue",Arial,sans-serif;
@@ -84,3 +84,5 @@ input[type=search]{border-radius:999px}
 .sidebar .site-btn{background:var(--cream);color:var(--ink)}
 .sidebar .site-btn:hover{background:#fff;color:#1F2DA8}
 .sidebar :focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+/* complementary palette: blue + amber (matches marketing site) */
+:root{--accent:#1F3FBF;--accent-hover:#17308F;--accent-active:#112A78;--accent-subtle:#EAF0FC;--accent-2:#7F9CE8;--coral:#E0891A}
