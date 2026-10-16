@@ -56,3 +56,13 @@ input[type=search]{border-radius:999px}
   .commit-row .cr-demand{flex:1 1 auto;min-width:0}
   .commit-row .cr-title{word-break:normal;overflow-wrap:anywhere}
 }
+/* mobile overflow fixes (integrations header row, data status label) */
+@media (max-width:700px){
+  .view .row{flex-wrap:wrap;gap:8px}
+  .view .label{white-space:normal;max-width:100%}
+  .view .btn{max-width:100%}
+}
+/* sample-data strip */
+.demo-strip{display:flex;align-items:flex-start;gap:10px;padding:10px clamp(16px,3vw,32px);background:var(--lilac);border-bottom:1px solid var(--lilac-2);font-size:13px;line-height:1.45;color:#2B2A52}
+.demo-strip b{font-weight:700}
+.demo-strip .dot{flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(234,95,65,.18)}
